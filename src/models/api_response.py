@@ -12,7 +12,7 @@ class ApiResponse:
 
     @staticmethod
     def from_dict(obj: Dict) -> ApiResponse:
-        code = obj.get("code")
-        type = obj.get("type")
-        message = obj.get("message")
-        return ApiResponse(code, type, message)
+        _code = obj.get("code")
+        _type = obj.get("type")
+        _message = obj.get("message")
+        return ApiResponse(_code, _type, _message)

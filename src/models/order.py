@@ -24,13 +24,13 @@ class Order:
 
     @staticmethod
     def from_dict(obj: Dict) -> Order:
-        id = int(obj.get("id"))
-        petId = int(obj.get("petId"))
-        quantity = int(obj.get("quantity"))
-        shipDate = parser.parse(str(obj.get("shipDate"))).astimezone().replace(microsecond=0).isoformat()
-        status = OrderStatus(obj.get("status"))
-        complete = obj.get("complete")
-        return Order(id, petId, quantity, shipDate, status, complete)
+        _id = int(obj.get("id"))
+        _petId = int(obj.get("petId"))
+        _quantity = int(obj.get("quantity"))
+        _shipDate = parser.parse(str(obj.get("shipDate"))).astimezone().replace(microsecond=0).isoformat()
+        _status = OrderStatus(obj.get("status"))
+        _complete = obj.get("complete")
+        return Order(_id, _petId, _quantity, _shipDate, _status, _complete)
 
     def to_json(self) -> Dict:
         json = self.__dict__.copy()

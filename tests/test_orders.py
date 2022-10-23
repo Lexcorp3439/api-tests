@@ -1,9 +1,9 @@
 import allure
 import pytest
 
-from src import asserts, check, generate
+from src import asserts
 from src.config.config import RERUN_COUNT
-from src.models.order import Order, OrderStatus
+from src.models.order import OrderStatus
 from src.models.pet import PetStatus
 
 

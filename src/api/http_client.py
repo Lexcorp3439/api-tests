@@ -8,10 +8,7 @@ from uuid import uuid4
 import allure
 from requests import PreparedRequest, Request, Response, Session
 
-from src.config import config
-
-TEXT = allure.attachment_type.TEXT
-HTML = allure.attachment_type.HTML
+from src.config import config, consts
 
 
 class HttpClient:
@@ -50,15 +47,19 @@ class HttpClient:
         request_id = str(uuid4())
         with allure.step(_message):
             _curl_command = _request_to_curl(request=prepared_request)
-            allure.attach(body=_curl_command, name="Curl command", attachment_type=TEXT, )
+            allure.attach(body=_curl_command, name="Curl command", attachment_type=consts.TEXT, )
 
             _request_message = request_message(prepared_request, request_id=request_id)
-            allure.attach(body=_request_message, name="Request", attachment_type=HTML, )
+            allure.attach(body=_request_message, name="Request", attachment_type=consts.HTML, )
 
             response = session.send(prepared_request)
 
             _response_message = response_message(response, request_id=request_id)
-            allure.attach(body=_response_message, name=f"Response ({str(int(time.time()))})", attachment_type=HTML, )
+            allure.attach(
+                body=_response_message,
+                name=f"Response ({str(int(time.time()))})",
+                attachment_type=consts.HTML,
+            )
             return response
 
 
