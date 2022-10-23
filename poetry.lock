@@ -304,6 +304,17 @@ py = "*"
 pytest = ">=3.10"
 
 [[package]]
+name = "pytest-rerunfailures"
+version = "10.2"
+description = "pytest plugin to re-run tests to eliminate flaky failures"
+category = "main"
+optional = false
+python-versions = ">= 3.6"
+
+[package.dependencies]
+pytest = ">=5.3"
+
+[[package]]
 name = "pytest-xdist"
 version = "2.5.0"
 description = "pytest xdist plugin for distributed testing and loop-on-failing modes"
@@ -415,7 +426,7 @@ testing = ["coverage (>=6.2)", "coverage-enable-subprocess (>=1)", "flaky (>=3.7
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "86377df5debc7e1429dc72e83eebbe520ab019c4b80d381331c01afe5e11e894"
+content-hash = "a9a573765092c6b41c98e662bd3d4c0c1346558506ef4da80487362497ce5e8a"
 
 [metadata.files]
 allure-pytest = []
@@ -445,6 +456,7 @@ py = []
 pyparsing = []
 pytest = []
 pytest-forked = []
+pytest-rerunfailures = []
 pytest-xdist = []
 python-dateutil = []
 pyyaml = []

@@ -2,12 +2,15 @@ import allure
 import pytest
 
 from src import asserts, check, generate
+from src.config.config import RERUN_COUNT
 from src.models.order import Order, OrderStatus
 from src.models.pet import PetStatus
 
 
 @allure.title("Успешное выставление заказа")
 @pytest.mark.parametrize("order_status", [OrderStatus.placed, OrderStatus.approved, OrderStatus.delivered])
+@pytest.mark.orders
+@pytest.mark.flaky(reruns=RERUN_COUNT)
 def test_success_place_orders(user, order, store_helper, order_status):
     user(auth=True)
 
@@ -21,6 +24,8 @@ def test_success_place_orders(user, order, store_helper, order_status):
 
 @allure.title("Успешное выставление заказа на питомцев c разными статусами")
 @pytest.mark.parametrize("pet_status", [PetStatus.available, PetStatus.sold, PetStatus.pending])
+@pytest.mark.orders
+@pytest.mark.flaky(reruns=RERUN_COUNT)
 def test_success_place_orders_with_diff_pets(user, order, store_helper, pet_status):
     user(auth=True)
 

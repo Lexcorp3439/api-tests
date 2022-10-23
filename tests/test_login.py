@@ -7,6 +7,7 @@ from src.models.api_response import ApiResponse
 
 @allure.title("Успешная авторизация пользователя")
 @pytest.mark.xfail(reason="Куки не прилетают")
+@pytest.mark.login
 def test_success_login(user, user_helper):
     by_user = user(auth=False)
 
@@ -25,6 +26,7 @@ def test_success_login(user, user_helper):
 
 @allure.title("Авторизация пользователя с неверным логином")
 @pytest.mark.xfail(reason="Всегда 200 прилетает, хотя по спеке 401")
+@pytest.mark.login
 def test_login_with_invalid_username(user, user_helper):
     by_user = user(auth=False)
 
@@ -38,6 +40,7 @@ def test_login_with_invalid_username(user, user_helper):
 
 @allure.title("Авторизация пользователя с неверным паролем")
 @pytest.mark.xfail(reason="Всегда 200 прилетает, хотя по спеке 401")
+@pytest.mark.login
 def test_login_with_invalid_username(user, user_helper):
     by_user = user(auth=False)
 

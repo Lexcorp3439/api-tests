@@ -13,6 +13,7 @@ pytest = "^7.1.3"
 allure-pytest = "^2.11.1"
 pytest-xdist = "^2.5.0"
 python-dateutil = "^2.8.2"
+pytest-rerunfailures = "^10.2"
 
 [tool.poetry.dev-dependencies]
 # git hooks
