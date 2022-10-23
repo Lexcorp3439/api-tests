@@ -1,0 +1,18 @@
+# pyenv
+.python-version
+
+# Editors
+.idea
+.vscode
+
+# test runner
+allure-results
+allure-report
+.pytest_cache
+.report
+
+# python env
+__pycache__
+.venv
+.env
+venv
